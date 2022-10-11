@@ -18,7 +18,7 @@ class MovieDetailsModel extends MovieDetails {
       id: json["id"],
       backdropPath: json["backdrop_path"],
       overview: json['overview'],
-      releaseDate: json['release_date'],
+      releaseDate: DateTime.parse(json['release_date']),
       runtime: json['runtime'],
       title: json['title'],
       voteAverage: json['vote_average'].toDouble(),
