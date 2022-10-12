@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/movies/presentation/screens/movie_details_screen.dart';
 
 import '../../../core/network/api_constants.dart';
 import '../../../core/utils/enum.dart';
@@ -40,7 +41,14 @@ class NowPlayingWidget extends StatelessWidget {
                 ),
                 items: state.nowPlayingMovies.map((item) {
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                MovieDetailsScreen(id: item.id),
+                          ));
+                    },
                     child: Stack(
                       children: [
                         ShaderMask(

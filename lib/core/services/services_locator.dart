@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/movies/domain/usecases/get_movie_details.dart';
+import 'package:movie_app/movies/domain/usecases/get_movie_recommendation.dart';
 import 'package:movie_app/movies/presentation/controller/movies_bloc.dart';
 
 import '../../movies/data/datasource/movie_remote_data_source.dart';
@@ -19,7 +20,7 @@ class ServicesLocator {
       () => MoviesBloc(getIt(), getIt(), getIt()),
     );
     getIt.registerFactory<MovieDetailsBloc>(
-      () => MovieDetailsBloc(getIt()),
+      () => MovieDetailsBloc(getIt(), getIt()),
     );
 
     // Data Source
@@ -44,6 +45,9 @@ class ServicesLocator {
     );
     getIt.registerLazySingleton<GetMovieDetailsUseCase>(
       () => GetMovieDetailsUseCase(getIt()),
+    );
+    getIt.registerLazySingleton<GetMovieRecommendationUseCase>(
+      () => GetMovieRecommendationUseCase(getIt()),
     );
   }
 }
