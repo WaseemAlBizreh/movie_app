@@ -7,6 +7,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../core/network/api_constants.dart';
 import '../../../core/services/services_locator.dart';
+import '../../../core/utils/app_string.dart';
 import '../../../core/utils/dummy.dart';
 import '../../../core/utils/enum.dart';
 import '../../domain/entities/genres.dart';
@@ -14,7 +15,10 @@ import '../controller/movie_details_bloc.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final int id;
-  const MovieDetailsScreen({Key? key, required this.id}) : super(key: key);
+  const MovieDetailsScreen({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +172,7 @@ class MovieDetailsContent extends StatelessWidget {
                           ),
                           const SizedBox(height: 8.0),
                           Text(
-                            'Genres: ${_showGenres(state.movieDetails!.genres)}',
+                            '${AppString.genres}: ${_showGenres(state.movieDetails!.genres)}',
                             style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 12.0,
@@ -188,7 +192,7 @@ class MovieDetailsContent extends StatelessWidget {
                       from: 20,
                       duration: const Duration(milliseconds: 500),
                       child: Text(
-                        'More like this'.toUpperCase(),
+                        AppString.moreLikeThis.toUpperCase(),
                         style: const TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,

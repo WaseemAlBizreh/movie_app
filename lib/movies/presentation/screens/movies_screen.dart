@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/movies/presentation/controller/movies_events.dart';
 
 import '../../../core/services/services_locator.dart';
+import '../../../core/utils/app_string.dart';
 import '../controller/movies_bloc.dart';
 import '../widgets/now_playing_widget.dart';
 import '../widgets/popular_widget.dart';
@@ -26,9 +27,9 @@ class MoviesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const NowPlayingWidget(),
-              _customContainerWidget("Popular"),
+              _customContainerWidget(AppString.popular),
               const PopularWidget(),
-              _customContainerWidget("Top Rated"),
+              _customContainerWidget(AppString.topRated),
               const TopRatedWidget(),
             ],
           ),
@@ -57,7 +58,7 @@ class MoviesScreen extends StatelessWidget {
             child: Row(
               children: const [
                 Text(
-                  "See More",
+                  AppString.seeMore,
                   style: TextStyle(
                     color: Colors.white,
                   ),
